@@ -1,0 +1,8 @@
+[
+  {
+    "source": "/old-blog/:slug",
+    "destination": "/blog/:slug",
+    "permanent": true,
+    "comment": "Dynamic blog migration"
+  }
+]

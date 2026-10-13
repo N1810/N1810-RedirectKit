@@ -1,0 +1,9 @@
+{
+  "redirectsDir": "redirects",
+  "strict": true,
+  "validation": {
+    "allowChains": false,
+    "allowCycles": false,
+    "allowDuplicates": false
+  }
+}

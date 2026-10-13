@@ -1,0 +1,14 @@
+[
+  {
+    "source": "/old-about",
+    "destination": "/about",
+    "permanent": true,
+    "comment": "Legacy URL migration"
+  },
+  {
+    "source": "/contact-us",
+    "destination": "/contact",
+    "permanent": true,
+    "comment": "Canonical contact page"
+  }
+]

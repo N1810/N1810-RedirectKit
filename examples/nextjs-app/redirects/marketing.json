@@ -1,0 +1,14 @@
+[
+  {
+    "source": "/summer-sale",
+    "destination": "/deals/summer",
+    "permanent": false,
+    "comment": "Seasonal temporary promotion"
+  },
+  {
+    "source": "/promo",
+    "destination": "/deals/summer",
+    "permanent": true,
+    "comment": "Permanent shortcut"
+  }
+]
