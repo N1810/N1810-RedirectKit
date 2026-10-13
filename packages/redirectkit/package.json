@@ -1,0 +1,84 @@
+{
+  "name": "redirectkit",
+  "version": "0.1.1",
+  "description": "Production-ready redirect management for Next.js applications with validation, loop/chain detection, CLI, and CSV import/export",
+  "keywords": [
+    "nextjs",
+    "redirects",
+    "redirect-manager",
+    "next-redirects",
+    "seo",
+    "routing",
+    "validation",
+    "cli"
+  ],
+  "author": "Neeraj Kumar <sharmaneeraj1810@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N1810/N1810-RedirectKit.git",
+    "directory": "packages/redirectkit"
+  },
+  "bugs": {
+    "url": "https://github.com/N1810/N1810-RedirectKit/issues"
+  },
+  "homepage": "https://github.com/N1810/N1810-RedirectKit#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./next": {
+      "types": "./dist/next.d.ts",
+      "import": "./dist/next.js",
+      "default": "./dist/next.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "redirectkit": "bin/redirectkit.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "peerDependencies": {
+    "next": ">=13.0.0 || >=14.0.0 || >=15.0.0"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "pack:check": "node ./scripts/pack-check.js",
+    "prepublishOnly": "pnpm build && pnpm test && pnpm pack:check"
+  },
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.8",
+    "next": "^15.1.7",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}

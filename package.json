@@ -1,0 +1,36 @@
+{
+  "name": "redirectkit-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Production-Ready Next.js Redirect Manager Workspace",
+  "packageManager": "pnpm@10.34.5",
+  "engines": {
+    "node": ">=18.18.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter redirectkit build",
+    "test": "pnpm --filter redirectkit test",
+    "test:coverage": "pnpm --filter redirectkit test:coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "pnpm --filter redirectkit typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "pack:check": "pnpm --filter redirectkit pack:check",
+    "example:dev": "pnpm --filter nextjs-app dev",
+    "example:build": "pnpm --filter nextjs-app build",
+    "example:start": "pnpm --filter nextjs-app start"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/node": "^22.13.8",
+    "eslint": "^9.21.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.25.0",
+    "vitest": "^3.0.7"
+  }
+}
