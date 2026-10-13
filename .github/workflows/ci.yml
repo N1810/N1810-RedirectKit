@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Rebuild native dependencies (esbuild)
+        run: pnpm rebuild
+
       - name: Lint codebase
         run: pnpm lint
 

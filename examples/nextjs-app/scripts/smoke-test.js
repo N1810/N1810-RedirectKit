@@ -8,7 +8,8 @@ console.log('🚀 Starting Next.js production server for HTTP smoke testing on p
 const server = spawn('pnpm', ['start', '--port', String(PORT)], {
   cwd: process.cwd(),
   stdio: ['ignore', 'pipe', 'pipe'],
-  shell: true
+  shell: process.platform === 'win32',
+  detached: process.platform !== 'win32'
 });
 
 server.stdout.on('data', data => {
@@ -112,12 +113,19 @@ async function runTests() {
     process.exitCode = 1;
   } finally {
     console.log('Shutting down Next.js test server...');
-    server.kill();
-    if (process.platform === 'win32' && server.pid) {
-      try {
-        spawn('taskkill', ['/pid', String(server.pid), '/T', '/F']);
-      } catch {
-        // ignore
+    if (server.pid) {
+      if (process.platform === 'win32') {
+        try {
+          spawn('taskkill', ['/pid', String(server.pid), '/T', '/F']);
+        } catch {
+          // ignore
+        }
+      } else {
+        try {
+          process.kill(-server.pid, 'SIGTERM');
+        } catch {
+          server.kill('SIGTERM');
+        }
       }
     }
     process.exit(process.exitCode ? Number(process.exitCode) : 0);
